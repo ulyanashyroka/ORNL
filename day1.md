@@ -62,10 +62,12 @@ Provides `SuiteSparse_KLU` for sparse linear solvers used in SUNDIALS.
 
 ### LLVM 18 + Clang 18
 
+```
 LLVM 18
 ├── Clang 18       ← C/C++ compiler
 ├── LLVM libraries
 └── Optimizers     ← transform LLVM IR to make code faster without changing behavior
+```
 
 `llvm-18` and `clang-18` are the specific versions required by GridKit and Enzyme. Apple's built-in Clang is a modified fork that lags behind upstream LLVM.
 
@@ -83,10 +85,12 @@ sudo port select --set clang mp-clang-18
 
 SUNDIALS is the first layer for GridKit. Every component follows the same `source/build/install` directory pattern:
 
+```
 sundials/
 ├── sundials/    ← source
 ├── build/       ← compiler output
 └── install/     ← built through build directory, compiles to install afterwards
+```
 
 ### Clone SUNDIALS
 
@@ -143,8 +147,10 @@ git clone https://github.com/EnzymeAD/Enzyme
 
 Repository structure:
 
+```
 Enzyme/           ← repo root, contains top-level CMakeLists.txt
 └── enzyme/       ← actual Enzyme plugin source with its own CMakeLists.txt
+```
 
 > ⚠️ If you run `cmake` from the repo root (`Enzyme/`) pointing at `../llvm`, CMake will error saying the LLVM source directory does not exist. Always `cd` into `enzyme/` first.
 
@@ -256,10 +262,12 @@ The autodiff Jacobian computed `2.06027e-14` where the reference expects `0`. Th
 ## Additional Directories
 
 Create the following sibling directories in the same source folder:
+```
 petsc/
 coinor_ipopt/
 coinor_third_party/
 coinhsl/
+```
 
 ---
 
